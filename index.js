@@ -4,8 +4,22 @@ import videoRoutes from './routes/videos.js'
 import commentRoutes from './routes/comments.js'
 import userRoutes from './routes/users.js'
 import authRoutes from './routes/auth.js'
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
 
 const app = express();
+dotenv.config()
+
+const connect = () => {
+    mongoose
+    .connect(process.env.MONGO)
+    .then(() => {
+        console.log('DB Connected...')
+    })
+    .catch((err) => {
+        throw err
+    })
+}
 
 app.use(cookieParser())
 app.use(express.json())
@@ -27,5 +41,6 @@ app.use((err, req, res, next) => {
 })
 
 app.listen(8800, () => {
+    connect()
     console.log("Connected to server...")
 })

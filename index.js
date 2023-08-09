@@ -10,7 +10,7 @@ app.use(cookieParser())
 app.use(express.json())
 app.use('/api/users', userRoutes)
 app.use('/api/video', videoRoutes)
-app.use('/api/comments', commentRoutes)
+app.use('/api/comments', commentRoutes) 
 
 
 app.use((err, req, res, next) => {

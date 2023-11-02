@@ -10,6 +10,10 @@ const CommentSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    commentId : {
+      type: String,
+      required: true
+    },
     desc: {
       type: String,
       required: true,
